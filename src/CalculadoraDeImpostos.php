@@ -2,17 +2,12 @@
 
 namespace PHP\DesignPattern;
 
+use PHP\DesignPattern\Impostos\Imposto;
+
 class CalculadoraDeImpostos
 {
-  public function calcula(Orcamento $orcamento, string $nomeImposto): float
+  public function calcula(Orcamento $orcamento, Imposto $imposto): float
   {
-    switch ($nomeImposto) {
-      case "ICMS":
-        return $orcamento->valor * 0.1;
-      case "ISS":
-        return $orcamento->valor * 0.06;
-    }
-    
-    return $orcamento->valor * 0.1;
+    return $imposto->calculaImposto($orcamento);
   }
 }
