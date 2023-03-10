@@ -3,13 +3,13 @@
 namespace PHP\DesignPattern;
 
 use PHP\DesignPattern\EstadosOrcamento\EmAprovacao;
-use PHP\DesignPattern\EstadosOrcamento\EstadosOrcamento;
+use PHP\DesignPattern\EstadosOrcamento\EstadoOrcamento;
 
 class Orcamento
 {
   public int $quantidadeItens;
   public float $valor;
-  public EstadosOrcamento $estadoAtual;
+  public EstadoOrcamento $estadoAtual;
   
   public function __construct()
   {

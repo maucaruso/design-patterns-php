@@ -4,7 +4,7 @@ namespace PHP\DesignPattern\EstadosOrcamento;
 
 use PHP\DesignPattern\Orcamento;
 
-abstract class EstadosOrcamento
+abstract class EstadoOrcamento
 {
   /**
    * @throws \DomainException

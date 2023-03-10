@@ -4,7 +4,7 @@ namespace PHP\DesignPattern\EstadosOrcamento;
 
 use PHP\DesignPattern\Orcamento;
 
-class Reprovado extends EstadosOrcamento
+class Reprovado extends EstadoOrcamento
 {
   public function calculaDescontoExtra(Orcamento $orcamento): float
   {
