@@ -2,20 +2,27 @@
 
 namespace PHP\DesignPattern;
 
+use PHP\DesignPattern\EstadosOrcamento\Finalizado;
+use PHP\DesignPattern\Http\HttpAdapter;
+
 class registroOrcamento
 {
+  private HttpAdapter $http;
+  
+  public function __construct(HttpAdapter $http)
+  {
+    $this->$http = $http;
+  }
+  
   public function registrar(Orcamento $orcamento): void
   {
-    $postParameter = array(
-      'orcamento' => $orcamento,
-      'dataOrcamento' => '2023-03-15',
-    );
+    if (!$orcamento->estadoAtual instanceof Finalizado) {
+      throw new \DomainException('Apenas orçamentos finalizados podem ser registrados na API');
+    }
     
-    $curlHandle = curl_init('http://domain-name/endpoint-path');
-    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $postParameter);
-    curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
-    
-    $curlResponse = curl_exec($curlHandle);
-    curl_close($curlHandle);
+    $this->http->post('http://api.registrar.orcamento', [
+      'valor' => $orcamento->valor,
+      'quantidadeItens' => $orcamento->quantidadeItens
+    ]);
   }
 }
