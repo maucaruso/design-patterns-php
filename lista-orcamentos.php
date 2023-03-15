@@ -35,7 +35,7 @@ $listaOrcamentos->addOrcamento($orcamento3);
 //   'putting an intruder type here'
 // ];
 
-foreach ($listaOrcamentos as $orcamento) {
+foreach ($listaOrcamentos->orcamentosFinalizados() as $orcamento) {
   echo "Valor: " . $orcamento->valor . PHP_EOL;
   echo "Estado: " . get_class($orcamento->estadoAtual) . PHP_EOL;
   echo "Qtd. Itens: " . $orcamento->quantidadeItens . PHP_EOL;

@@ -2,6 +2,8 @@
 
 namespace PHP\DesignPattern;
 
+use PHP\DesignPattern\EstadosOrcamento\Finalizado;
+
 /**
  * Summary of ListaDeOrcamentos
  */
@@ -29,8 +31,15 @@ class ListaDeOrcamentos implements \IteratorAggregate
   * Summary of getIterator
   * @return \ArrayIterator
   */
-	public function getIterator() 
+	public function getIterator(): \ArrayIterator
   {
     return new \ArrayIterator($this->orcamentos);
 	}
+  
+  public function orcamentosFinalizados()
+  {
+    return array_filter($this->orcamentos, function ($orcamento) {
+      if (get_class($orcamento->estadoAtual) === Finalizado::class) return $orcamento;
+    });
+  }
 }
