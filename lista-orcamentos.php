@@ -2,6 +2,7 @@
 
 require_once 'vendor/autoload.php';
 
+use PHP\DesignPattern\ListaDeOrcamentos;
 use PHP\DesignPattern\Orcamento;
 
 $listaOrcamentos = [];
@@ -22,15 +23,22 @@ $orcamento3->valor = 1350.75;
 $orcamento3->aprova();
 $orcamento3->finaliza();
 
-$listaOrcamentos = [
-  $orcamento1,
-  $orcamento2,
-  $orcamento3,
-  'putting an intruder type here'
-];
+$listaOrcamentos = new ListaDeOrcamentos();
+$listaOrcamentos->addOrcamento($orcamento1);
+$listaOrcamentos->addOrcamento($orcamento2);
+$listaOrcamentos->addOrcamento($orcamento3);
+
+// $listaOrcamentos = [
+//   $orcamento1,
+//   $orcamento2,
+//   $orcamento3,
+//   'putting an intruder type here'
+// ];
 
 foreach ($listaOrcamentos as $orcamento) {
   echo "Valor: " . $orcamento->valor . PHP_EOL;
   echo "Estado: " . get_class($orcamento->estadoAtual) . PHP_EOL;
   echo "Qtd. Itens: " . $orcamento->quantidadeItens . PHP_EOL;
+  
+  echo PHP_EOL;
 }
