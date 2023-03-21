@@ -3,20 +3,21 @@
 use PHP\DesignPattern\CalculadoraDeDescontos;
 use PHP\DesignPattern\CalculadoraDeImpostos;
 use PHP\DesignPattern\Impostos\ICMS;
+use PHP\DesignPattern\Impostos\ISS;
 use PHP\DesignPattern\Orcamento;
 
 require 'vendor/autoload.php';
 
-// $calculadora = new CalculadoraDeImpostos();
+$calculadora = new CalculadoraDeImpostos();
 
-// $orcamento = new Orcamento();
-// $orcamento->valor = 100;
-
-// echo $calculadora->calcula($orcamento, new ICMS());
-
-$calculadora = new CalculadoraDeDescontos();
 $orcamento = new Orcamento();
-$orcamento->valor = 600;
-$orcamento->quantidadeItens = 6;
+$orcamento->valor = 100;
 
-echo $calculadora->calculaDescontos(($orcamento));
+echo $calculadora->calcula($orcamento, new ICMS(new ISS()));
+
+// $calculadora = new CalculadoraDeDescontos();
+// $orcamento = new Orcamento();
+// $orcamento->valor = 600;
+// $orcamento->quantidadeItens = 6;
+
+// echo $calculadora->calculaDescontos(($orcamento));
