@@ -4,7 +4,7 @@ namespace PHP\DesignPattern;
 
 class Pedido
 {
-  public DadosExtrinsecosPedido $dados;
+  public TemplatePedido $template;
   public Orcamento $orcamento;
   
   

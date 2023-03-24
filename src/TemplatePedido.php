@@ -2,7 +2,7 @@
 
 namespace PHP\DesignPattern;
 
-class DadosExtrinsecosPedido
+class TemplatePedido
 {
   private string $nomeCliente;
   private \DateTimeInterface $dataFinalizacao;
