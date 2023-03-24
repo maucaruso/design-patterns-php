@@ -1,18 +1,18 @@
 <?php
 
+use PHP\DesignPattern\DadosExtrinsecosPedido;
 use PHP\DesignPattern\Orcamento;
 use PHP\DesignPattern\Pedido;
 
 require 'vendor/autoload.php';
 
 $pedidos = [];
-$hoje = new \DateTimeImmutable();
+$dados = new DadosExtrinsecosPedido(md5((string) rand(1, 10000)), new \DateTimeImmutable());
 
 for ($i = 0; $i < 10000; $i++) {
   $pedido = new Pedido();
-  $pedido->nomeCliente = md5((string) rand(1, 10000));
+  $pedido->dados = $dados;
   $pedido->orcamento = new Orcamento();
-  $pedido->dataFinalizacao = $hoje;
   
   $pedidos[] = $pedido;
 }
