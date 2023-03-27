@@ -1,6 +1,6 @@
 <?php
 
-namespace PHP\DesignPattern;
+namespace PHP\DesignPattern\Pedido;
 
 class TemplatePedido
 {

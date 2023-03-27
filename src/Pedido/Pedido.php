@@ -1,6 +1,8 @@
 <?php
 
-namespace PHP\DesignPattern;
+namespace PHP\DesignPattern\Pedido;
+
+use PHP\DesignPattern\Orcamento;
 
 class Pedido
 {

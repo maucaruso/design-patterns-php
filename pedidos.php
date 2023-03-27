@@ -1,8 +1,8 @@
 <?php
 
 use PHP\DesignPattern\Orcamento;
-use PHP\DesignPattern\Pedido;
-use PHP\DesignPattern\TemplatePedido;
+use PHP\DesignPattern\Pedido\Pedido;
+use PHP\DesignPattern\Pedido\TemplatePedido;
 
 require 'vendor/autoload.php';
 
