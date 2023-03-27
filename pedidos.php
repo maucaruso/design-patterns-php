@@ -1,18 +1,16 @@
 <?php
 
 use PHP\DesignPattern\Orcamento;
-use PHP\DesignPattern\Pedido\Pedido;
-use PHP\DesignPattern\Pedido\TemplatePedido;
+use PHP\DesignPattern\Pedido\CriadorDePedido;
 
 require 'vendor/autoload.php';
 
 $pedidos = [];
-$dados = new TemplatePedido(md5((string) rand(1, 10000)), new \DateTimeImmutable());
+$criadorPedido = new CriadorDePedido();
 
 for ($i = 0; $i < 10000; $i++) {
-  $pedido = new Pedido();
-  $pedido->template = $dados;
-  $pedido->orcamento = new Orcamento();
+  $orcamento = new Orcamento();
+  $pedido = $criadorPedido->criaPedido('Vinicius Dias', date('Y-m-d'), $orcamento);
   
   $pedidos[] = $pedido;
 }
