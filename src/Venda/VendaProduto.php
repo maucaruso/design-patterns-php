@@ -10,4 +10,6 @@ class VendaProduto extends Venda
   {
     $this->pesoProduto = $pesoProduto;
   }
+  
+  // Devemos aplicar um imposto ICMS sobre a venda
 }

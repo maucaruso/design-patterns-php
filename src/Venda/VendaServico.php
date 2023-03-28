@@ -11,4 +11,6 @@ class VendaServico extends Venda
     parent::__construct($dataRealizacao);
     $this->nomePrestador = $nomePrestador;
   }
+  
+  // Devemos aplicar um imposto ISS sobre a venda
 }

@@ -2,8 +2,6 @@
 
 namespace PHP\DesignPattern\Venda;
 
-use DateTime;
-
 abstract class Venda
 {
   public \DateTimeInterface $dataRealizacao;
