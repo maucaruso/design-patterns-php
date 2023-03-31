@@ -23,7 +23,10 @@ $notaFiscal = $builder->paraEmpresa('1234567', 'maurici tecnologias')
   ->comObservacoes('Esta nota fical foi feita com um construtor')
   ->constroi();
   
-$notaFiscal2 = $notaFiscal->clonar();
+// $notaFiscal2 = $notaFiscal->clonar();
+// $notaFiscal2->itens[] = new ItemOrcamento();
+
+$notaFiscal2 = clone $notaFiscal;
 $notaFiscal2->itens[] = new ItemOrcamento();
 
 var_dump($notaFiscal, $notaFiscal2);
