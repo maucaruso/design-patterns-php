@@ -4,9 +4,9 @@ namespace PHP\DesignPattern\NotaFiscal;
 
 use PHP\DesignPattern\ItemOrcamento;
 
-class ConstrutorNotaFiscal
+abstract class ConstrutorNotaFiscal
 {
-  private NotaFiscal $notaFiscal;
+  protected NotaFiscal $notaFiscal;
   
   public function __construct()
   {
@@ -41,8 +41,5 @@ class ConstrutorNotaFiscal
     $this->notaFiscal->dataEmissao = $dataEmissao;
   }
   
-  public function constroi(): NotaFiscal
-  {
-    return $this->notaFiscal;
-  }
+  abstract public function constroi(): NotaFiscal;
 }

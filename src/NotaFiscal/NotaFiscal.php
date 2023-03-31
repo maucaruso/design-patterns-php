@@ -2,6 +2,8 @@
 
 namespace PHP\DesignPattern\NotaFiscal;
 
+use PHP\DesignPattern\ItemOrcamento;
+
 class NotaFiscal
 {
   public string $cnpjEmpresa;
@@ -13,6 +15,12 @@ class NotaFiscal
   
   public function valor(): float
   {
-    return 0;
+    return array_reduce(
+      $this->itens, 
+      function (float $valorAculumado, ItemOrcamento $itemAtual) {
+        return $valorAculumado + $itemAtual->valor;
+      },
+      0
+    );
   }
 }
